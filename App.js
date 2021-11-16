@@ -1,23 +1,76 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.profile}>
-         <Image source={require("./assets/profile.png")} style={{borderRadius: 50}}/>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.face2}>
+        <Text style={{ fontSize: 25, fontWeight: "bold", marginVertical: 10 }}>
+          PAYMENT SUCCESFUL
+        </Text>
+        <Text style={{ color: "grey", fontSize: 15 }}>
+          Tis is just some dummy text cuz i dont have anything to write. THis is
+          just some dummy text cuz i dont have anything to write.THis is just
+          some dummy text cuz i dont have anything to write.THis is just some
+          dummy text cuz i dont have anything to write.THis is just some dummy
+          text cuz i dont have anything to write.
+        </Text>
       </View>
-
-      <View style={styles.info}>
-        <Text style={styles.label}>Your Name</Text>
-        <TextInput style={styles.input} placeholder="Enter Your Name"/>
-        <Text style={styles.label}>Your Gen</Text>
-        <TextInput style={styles.input} placeholder="Enter Your Gen"/>
-        <Text style={styles.label}>Your Address</Text>
-        <TextInput style={styles.input} placeholder="Enter Your Address"/>
+      <View style={styles.face3}>
+        <Image
+          style={{ height: 250, width: 350 }}
+          source={require("./assets/success.png")}
+        />
       </View>
-    </View>
+      <View style={styles.face4}>
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#8674F3",
+            paddingHorizontal: 40,
+            paddingVertical: 20,
+            borderRadius: 40,
+            elevation: 5,
+            shadowColor: "silver",
+          }}
+        >
+          <Text style={{ fontSize: 20, color: "#fff" }}>Get Started</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.face5}>
+        <View
+          style={{
+            flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: "grey" }}>Previous</Text>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <View style={styles.pageballs}></View>
+          <View style={styles.pageballs}></View>
+          <View style={[styles.pageballs, styles.activepageball]}></View>
+        </View>
+        <View
+          style={{ flex: 1, alignItems: "flex-end", justifyContent: "center" }}
+        ></View>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -25,31 +78,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 30,
-    backgroundColor: '#fff',
-    flexDirection: 'column'
+    paddingHorizontal: 30,
+    backgroundColor: "#fff",
+    flexDirection: "column",
   },
-  profile: {
+  face2: {
     flex: 4,
-    backgroundColor: 'grey',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
   },
-  info: {
-    flex: 6,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center'
+  face3: {
+    flex: 4,
+    alignItems: "center",
   },
-  input: {
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 100,
-    paddingRight: 100,
+  face4: {
+    flex: 2,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  label: {
-    padding: 10
-  }
-  
+  face5: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  pageballs: {
+    backgroundColor: "grey",
+    height: 8,
+    width: 8,
+    margin: 5,
+    borderRadius: 10,
+  },
+  activepageball: {
+    backgroundColor: "#8674F3",
+    height: 8,
+    width: 20,
+    margin: 4,
+    borderRadius: 10,
+  },
 });
